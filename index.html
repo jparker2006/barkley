@@ -25,7 +25,7 @@
 <script>
 /* Decide before first paint: html.gl = the painting can open into depth (arrival.js);
    html.arrival = first view this session, so the trailhead starts as bare paper and paints itself.
-   Fail-safe: if the arrival hasn't started 1.2 s in, the plain painting fades in instead. */
+   Fail-safe: if the arrival hasn't started 1.2 s after navigation began, the plain painting fades in instead. */
 (function (d) {
   d.classList.add('js');
   try {
@@ -34,7 +34,7 @@
     d.classList.add('gl');
     var frozen = q !== null && q !== '' && !isNaN(q);
     if (frozen || q === 'replay' || !sessionStorage.getItem('barkley-arrived')) d.classList.add('arrival', 'first-view');
-    if (!frozen) setTimeout(function () { if (!d.classList.contains('arriving')) d.classList.remove('arrival'); }, 1200);
+    if (!frozen) setTimeout(function () { if (!d.classList.contains('arriving')) d.classList.remove('arrival'); }, Math.max(0, 1200 - performance.now()));
   } catch (e) {}
 })(document.documentElement);
 </script>

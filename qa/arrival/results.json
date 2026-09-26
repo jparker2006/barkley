@@ -148,24 +148,24 @@
   ],
   "c4": {
    "cached-1440": {
-    "readyAt": 215,
-    "doneAt": 2019,
-    "afterReadyMs": 1804,
-    "avgFrameMs": 16.25,
+    "readyAt": 232,
+    "doneAt": 2045,
+    "afterReadyMs": 1813,
+    "avgFrameMs": 16.33,
     "errors": []
    },
    "cached-390": {
-    "readyAt": 262,
-    "doneAt": 2074,
-    "afterReadyMs": 1812,
-    "avgFrameMs": 16.32,
+    "readyAt": 239,
+    "doneAt": 2041,
+    "afterReadyMs": 1802,
+    "avgFrameMs": 16.38,
     "errors": []
    },
    "slow": {
     "elapsedAtCheck": 1600,
     "at16": {
      "cls": "js gl first-view",
-     "picture": "0.983419",
+     "picture": "1",
      "state": "loading"
     },
     "later": {
