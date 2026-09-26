@@ -1,4 +1,4 @@
-// Builds the deployable site into dist/Barkley/ (and dist/Barkley.zip when run locally).
+// Builds the deployable site into dist/Barkley/.
 // Only files the pages actually reference are copied. Local CSS/JS get a content-hash ?v= so
 // returning visitors never mix old and new files. Links use Cloudflare Pages' extensionless
 // URLs (album, not album.html) to skip a redirect.
@@ -47,7 +47,7 @@ for (const file of pages) {
   await writeFile(path.join(out, file), html);
 }
 
-// Report and zip.
+// Report.
 const files = execFileSync('find', ['.', '-type', 'f'], { cwd: out, encoding: 'utf8' }).trim().split('\n').sort();
 let total = 0, largest = ['', 0];
 for (const f of files) {
@@ -56,10 +56,4 @@ for (const f of files) {
   if (size > largest[1]) largest = [f, size];
 }
 if (largest[1] > 25 * 1024 * 1024) throw new Error(`${largest[0]} is over Cloudflare Pages' 25 MiB file limit`);
-// The zip is only for hand delivery; hosted builds (e.g. Vercel) skip it.
-let zipped = false;
-if (!process.env.VERCEL) {
-  try { execFileSync('zip', ['-qr', '../Barkley.zip', '.'], { cwd: out }); zipped = true; } catch {}
-}
 console.log(`dist/Barkley: ${files.length} files, ${(total / 1048576).toFixed(1)} MB (largest ${largest[0]}, ${(largest[1] / 1048576).toFixed(1)} MB)`);
-if (zipped) console.log('dist/Barkley.zip written');

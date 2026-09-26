@@ -2,7 +2,9 @@
 
 Barkley’s QR-tag page, redesigned as one continuous walk up Harper Monkey Trail.
 
-Local preview: `node server.mjs` (or `npm start`), then open http://127.0.0.1:4383/
+- **Live on Vercel:** https://barkley-one.vercel.app (every push to `main` redeploys)
+- **Destination:** https://jeff-parker.com/Barkley/, where the QR tag points. See `DEPLOY.md` and `FOR-JEFF.md`.
+- **Local preview:** `node server.mjs` (or `npm start`), then open http://127.0.0.1:4383/
 
 ## What’s on the page
 
@@ -34,7 +36,8 @@ Also: clouds drift behind the name, a hawk circles far off, pollen floats in the
 | `assets/og.jpg` | Link preview card |
 | `sw.js`, `about.html`, `photos.html`, `offline.html` | Retire the old app: the service worker clears its caches and removes itself, and the pages redirect old links |
 | `assets/icons/` | Favicon and home-screen icon (Barkley's face) |
-| `build.mjs` → `dist/Barkley/`, `dist/Barkley.zip` | Deployable bundle; see `DEPLOY.md` |
+| `build.mjs` → `dist/Barkley/` | Deployable build (Vercel runs it too; config in `vercel.json`) |
+| `DEPLOY.md`, `FOR-JEFF.md` | How it ships to jeff-parker.com, and the prompt Jeff gives his Claude Code |
 | `media.json` | The 15 photos/videos and captions (unchanged) |
 | `DESIGN.md` | Design rationale for this version |
 | `IMAGE-BRIEF.md` | Optional new artwork to request from Codex, with specs |
@@ -51,4 +54,4 @@ With the OS setting on, nothing zooms, pans, sways, drifts or pops. The video ne
 
 ## Not done
 
-The public QR destination (`https://jeff-parker.com/Barkley/`) has not been changed. `DEPLOY.md` has the steps. Testing used Chromium with emulated phone viewports, not a physical iPhone.
+The public QR destination (`https://jeff-parker.com/Barkley/`) has not been changed yet; `FOR-JEFF.md` has the handoff. Testing used Chromium with emulated phone viewports, not a physical iPhone.
