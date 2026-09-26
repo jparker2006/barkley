@@ -16,6 +16,8 @@ Barkley’s QR-tag page, redesigned as one continuous walk up Harper Monkey Trai
 
 **Ask Barkley.** The first card after the trailhead: "ask me anything." Finders can ask things like "where do you live?" or "i found you. what do i do?" and Barkley answers in his own voice, only from `barkley-facts.md`. If he doesn't know, he says so and points them to Carol. Phone numbers and the address in answers are tappable. It runs on OpenRouter (`deepseek/deepseek-v4.1-flash`, about $0.0001 per question) through `api/ask.js`, a Vercel Function. jeff-parker.com calls the same endpoint, and CORS allows it. It needs `OPENROUTER_API_KEY` set in the Vercel project. Without the key, or if anything fails, Barkley just says to text Carol.
 
+His voice and rules live in the prompt in `api/_barkley.js`: steps first when someone has found him, no jokes when he's hurt, never a guess about food, age or behavior, no-for-every-dog foods (chocolate, grapes…) said plainly, nothing about the household beyond the facts, honest that he's a website, and he gets the current LA time. After changing the prompt or the facts, run `node tools/ask-eval.mjs` (30 questions, including injection attempts, a forged earlier answer, Spanish and a short chat) and read the answers. To test before it goes live: `vercel deploy --prod --skip-domain`, then `node tools/ask-eval.mjs --deployment <that url>`.
+
 **The real sky.** `sky.js` works out where the sun actually is over Harper Monkey Trail right now: dawn blush, the painted morning, golden hour and sunset happen when they happen in LA. After dusk the trailhead crossfades into Codex's night painting (moon, city lights, moonlit Barkley), the walk scenes get a moonlit wash, and BARKLEY turns cream. Live weather comes from Open-Meteo (no key needed): extra clouds, an overcast grey sky, a marine layer over the basin, or rain, and the wind speed sets how fast the poppies sway and the clouds drift. Preview any moment with `?time=19:40`, `?weather=fog|rain|overcast|cloudy|clear` and `?wind=30`.
 
 Jeff is named everywhere he appears. Barkley never moves. The environment does:
@@ -40,6 +42,7 @@ Also: clouds drift behind the name, a hawk circles far off, pollen floats in the
 | `touches.js` | Sunrise wake-up, location text, photo morph |
 | `ask.js`, `api/ask.js`, `api/_barkley.js` | Ask Barkley: the chat card, the Vercel Function, the prompt |
 | `barkley-facts.md` | Everything Barkley knows. Edit it in plain English |
+| `tools/ask-eval.mjs` | Puts Ask Barkley through 30 questions and checks the rules a script can check |
 | `arrival.js` | The arrival and depth: one WebGL2 shader, no libraries |
 | `tools/` | Asset scripts: `depth.py` (depth maps and base texture, via Depth Anything V2), `sketch.py` (pencil underdrawing), `video.sh` (trailhead loops), `night.py` (night assets) |
 | `album.html` + `album.css` + `app.js` | Full 15-item album and its captioned viewer |
