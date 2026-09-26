@@ -44,6 +44,10 @@ It lives in the copy and in the storytelling, not in interactions:
 
 The page adds exactly one control: "Text Carol where I am", because it genuinely helps a finder. Everything else happens on its own. There's the living trailhead video, depth planes that you walk into, light that follows the real hour in LA, a sunrise when the page opens, and a photo that grows into the album. None of it hides information or needs discovering.
 
+## The arrival
+
+The first visit starts on paper and watches the painting happen: pencil, then watercolor blooming from Barkley, then the sky and the sun. After that the painting has depth: near poppies slide past far hills when you move. Barkley is his own rigid plane, so he is painted in and leans with the scene but never warps. The name and the three buttons are never covered or delayed. Details and numbers: `specs/arrival.md`, `qa/arrival/RESULTS.md`.
+
 ## Palette and type
 
 Tokens live on `:root` in `world.css`: sky `#a9dde2`, ink `#153a2f`, paper `#fffaf0`, tennis `#e2ef7e`, poppy `#e9731f`. Bricolage Grotesque (800/600) is the display face and Manrope (400/600) the text face, both self-hosted. The page is light-only on purpose: it is a sunlit morning, and the dark direction was rejected.

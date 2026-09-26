@@ -373,3 +373,23 @@ h1{
 @media (prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
 ::view-transition-group(photo){animation-duration:.55s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
 
+
+/* ---------- the arrival (arrival.js, specs/arrival.md) ----------
+   html.arrival: the trailhead is bare paper until the canvas paints it. Everything painted is hidden;
+   the name and buttons are untouched. The foreground poppies and the sky's extras come back as the
+   bloom reaches them (arrival-fg, arrival-sky). If the arrival never starts, removing html.arrival
+   fades the plain painting in. */
+.plate .depth{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;opacity:0;transition:opacity .3s ease}
+.plate .depth.is-live{opacity:1}
+.plate .depth.is-instant{transition:none}
+.arrival .vista .plate{background:var(--paper)}
+.vista .plate>picture,.vista .still-barkley{transition:opacity .3s ease}
+.arrival .vista .plate>picture,.arrival .vista .living,.arrival .vista .still-barkley{opacity:0 !important}
+.cloud,.bird,.foreground,.sunlight,.motes{transition:filter .6s ease}
+.arrival:not(.arrival-fg) .foreground,
+.arrival:not(.arrival-sky) :is(.cloud,.bird,.sunlight,.motes){filter:opacity(0)}
+.arrival .bubble{animation:none !important;opacity:0 !important}
+/* The name is solid ink on the paper from the first frame; the painting is the show. */
+.first-view h1 span{animation:none !important}
+.arrived .bubble{animation-delay:.2s}
+.gl .bubble{translate:var(--lean-x,0) var(--lean-y,0)}

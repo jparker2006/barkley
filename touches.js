@@ -43,7 +43,7 @@
   setInterval(paintSky, 5 * 60 * 1000);
 
   // --- Sunrise on arrival: the stage starts at dawn and warms into the current light. ---
-  if (stage && !reduced) {
+  if (stage && !reduced && !document.documentElement.classList.contains('arrival')) {
     stage.classList.add('is-waking');
     requestAnimationFrame(() => requestAnimationFrame(() => stage.classList.remove('is-waking')));
   }

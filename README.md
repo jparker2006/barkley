@@ -12,6 +12,8 @@ Barkley’s QR-tag page, redesigned as one continuous walk up Harper Monkey Trai
 2. **The climb.** Scrolling walks the camera up the trail. The flowered arch drifts to the centre of the frame, and through it you see Barkley and Jeff climbing the ridge, labelled “that’s jeff. he’s a little slow.” His fictional feed sits here, with the three approved posts, newest first.
 3. **The top of the hill.** Stepping over the crest, the view from the top rises in and pushes the climb away. Jeff rests on a bench (“jeff needs a minute.”) while Barkley stands proudly on a rock. A single card holds six real photos as captioned prints (each linking to its post in `album.html`), a link to all 15, and “Thanks for looking out for me.” with Call/Text Carol again.
 
+**The arrival.** On the first visit of a session the trailhead paints itself in 1.8 s: bare paper, a pencil underdrawing (Barkley first), watercolor blooming out from his chest, the sky washing up last and a swell of sun. Then the painting opens into real depth, leaning with the mouse on desktop and drifting slowly on phones. BARKLEY and the three buttons are there and tappable from the first frame. It's skipped with reduced motion, data saver or no WebGL2, and after 1.2 s if the art hasn't loaded. Preview hooks: `?arrival=0.4` freezes it at that point, `?arrival=replay` plays it again, and `?arrival=off` turns it off. Spec: `specs/arrival.md`. Results: `qa/arrival/RESULTS.md`.
+
 Jeff is named everywhere he appears. Barkley never moves. The environment does:
 - **The living painting.** The trailhead is a real video loop: poppies sway, clouds drift and haze shimmers. A still cutout of Barkley is laid exactly on top.
 - **Real depth.** The climb and the top of the hill are split into sky, land and figure planes. Scrolling walks you into the scene, and on desktop the planes lean slightly toward the mouse.
@@ -31,6 +33,8 @@ Also: clouds drift behind the name, a hawk circles far off, pollen floats in the
 | `world.css` | Styles for the landing page |
 | `world.js` | Scroll camera, depth planes, living-painting playback (no dependencies) |
 | `touches.js` | Clock sky, sunrise, location text, photo morph |
+| `arrival.js` | The arrival and depth: one WebGL2 shader, no libraries |
+| `tools/` | Asset scripts: `depth.py` (depth maps and base texture, via Depth Anything V2), `sketch.py` (pencil underdrawing), `video.sh` (trailhead loops) |
 | `album.html` + `album.css` + `app.js` | Full 15-item album and its captioned viewer |
 | `assets/world/` | The walk: vista paintings plus Barkley cutouts, trailhead video loops, climb/summit sky, land and figure layers (each with a `-tall` phone version), cloud, poppies |
 | `assets/og.jpg` | Link preview card |

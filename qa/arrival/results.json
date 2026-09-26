@@ -1,0 +1,469 @@
+{
+ "suite": {
+  "c1": [
+   {
+    "size": "390x844",
+    "arrivalClass": true,
+    "buttons": [
+     {
+      "label": "Call Carol at (310) 729-2115",
+      "href": "tel:+13107292115",
+      "where": false,
+      "hit": true,
+      "bottom": 203
+     },
+     {
+      "label": "Text Carol",
+      "href": "sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.",
+      "where": false,
+      "hit": true,
+      "bottom": 203
+     },
+     {
+      "label": "Text Carol where I am",
+      "href": "sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.",
+      "where": true,
+      "hit": true,
+      "bottom": 203
+     }
+    ],
+    "h1Opacity": "1"
+   },
+   {
+    "size": "1440x900",
+    "arrivalClass": true,
+    "buttons": [
+     {
+      "label": "Call Carol at (310) 729-2115",
+      "href": "tel:+13107292115",
+      "where": false,
+      "hit": true,
+      "bottom": 374
+     },
+     {
+      "label": "Text Carol",
+      "href": "sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.",
+      "where": false,
+      "hit": true,
+      "bottom": 374
+     },
+     {
+      "label": "Text Carol where I am",
+      "href": "sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.",
+      "where": true,
+      "hit": true,
+      "bottom": 374
+     }
+    ],
+    "h1Opacity": "1"
+   }
+  ],
+  "c3": [
+   {
+    "1": {
+     "video": "frozen",
+     "errors": [],
+     "bark": [
+      826.84375,
+      466.84375,
+      566.203125,
+      433.078125
+     ]
+    },
+    "size": "1440x900",
+    "off": {
+     "video": "frozen",
+     "errors": [],
+     "bark": [
+      826.84375,
+      466.84375,
+      566.203125,
+      433.078125
+     ]
+    },
+    "1-novideo": {
+     "video": "none",
+     "errors": [],
+     "bark": [
+      826.84375,
+      466.84375,
+      566.203125,
+      433.078125
+     ]
+    },
+    "off-novideo": {
+     "video": "none",
+     "errors": [],
+     "bark": [
+      826.84375,
+      466.84375,
+      566.203125,
+      433.078125
+     ]
+    }
+   },
+   {
+    "1": {
+     "video": "frozen",
+     "errors": [],
+     "bark": [
+      123.953125,
+      493.390625,
+      300.578125,
+      294.53125
+     ]
+    },
+    "size": "390x844",
+    "off": {
+     "video": "frozen",
+     "errors": [],
+     "bark": [
+      123.953125,
+      493.390625,
+      300.578125,
+      294.53125
+     ]
+    },
+    "1-novideo": {
+     "video": "none",
+     "errors": [],
+     "bark": [
+      123.953125,
+      493.390625,
+      300.578125,
+      294.53125
+     ]
+    },
+    "off-novideo": {
+     "video": "none",
+     "errors": [],
+     "bark": [
+      123.953125,
+      493.390625,
+      300.578125,
+      294.53125
+     ]
+    }
+   }
+  ],
+  "c4": {
+   "cached-1440": {
+    "readyAt": 215,
+    "doneAt": 2019,
+    "afterReadyMs": 1804,
+    "avgFrameMs": 16.25,
+    "errors": []
+   },
+   "cached-390": {
+    "readyAt": 262,
+    "doneAt": 2074,
+    "afterReadyMs": 1812,
+    "avgFrameMs": 16.32,
+    "errors": []
+   },
+   "slow": {
+    "elapsedAtCheck": 1600,
+    "at16": {
+     "cls": "js gl first-view",
+     "picture": "0.983419",
+     "state": "loading"
+    },
+    "later": {
+     "state": "done",
+     "live": true
+    },
+    "errors": []
+   }
+  },
+  "c5": {
+   "errors": [],
+   "bark": [
+    826.84375,
+    466.84375,
+    566.203125,
+    433.078125
+   ]
+  },
+  "c7": {
+   "idleDrawsPerSec": 24,
+   "pastVistaDrawsPerSec": 0,
+   "hiddenDrawsPerSec": 0,
+   "errors": []
+  },
+  "c8": {
+   "reduced-390": {
+    "canvas": false,
+    "cls": "js",
+    "picture": "1",
+    "running": 0,
+    "videoSrc": "",
+    "errors": []
+   },
+   "reduced-1440": {
+    "canvas": false,
+    "cls": "js",
+    "picture": "1",
+    "running": 0,
+    "videoSrc": "",
+    "errors": []
+   },
+   "saveData-390": {
+    "canvas": false,
+    "cls": "js",
+    "picture": "1",
+    "running": 22,
+    "videoSrc": "",
+    "errors": []
+   },
+   "saveData-1440": {
+    "canvas": false,
+    "cls": "js",
+    "picture": "1",
+    "running": 23,
+    "videoSrc": "",
+    "errors": []
+   },
+   "noWebGL2-390": {
+    "canvas": false,
+    "cls": "js",
+    "picture": "1",
+    "running": 23,
+    "videoSrc": "trailhead-tall.mp4",
+    "errors": []
+   },
+   "noWebGL2-1440": {
+    "canvas": false,
+    "cls": "js",
+    "picture": "1",
+    "running": 23,
+    "videoSrc": "trailhead-wide.mp4",
+    "errors": []
+   },
+   "contextNull-390": {
+    "canvas": false,
+    "cls": "js first-view",
+    "picture": "1",
+    "running": 22,
+    "videoSrc": "trailhead-tall.mp4",
+    "errors": []
+   },
+   "contextNull-1440": {
+    "canvas": false,
+    "cls": "js first-view",
+    "picture": "1",
+    "running": 22,
+    "videoSrc": "trailhead-wide.mp4",
+    "errors": []
+   }
+  },
+  "c9": {
+   "first": {
+    "cls": "js gl",
+    "picture": "1"
+   },
+   "later": "done",
+   "errors": []
+  },
+  "c10": {
+   "links": [
+    "tel:+13107292115",
+    "sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.",
+    "sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.",
+    "album.html#post-11",
+    "album.html#post-5",
+    "album.html#post-12",
+    "album.html#post-10",
+    "album.html#post-7",
+    "album.html#post-8",
+    "album.html",
+    "tel:+13107292115",
+    "sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.",
+    "sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.",
+    "tel:+13107292115",
+    "tel:+13107510462",
+    "tel:+13102750055",
+    "https://maps.google.com/?q=611+Foothill+Road+Beverly+Hills+CA+90210"
+   ],
+   "locationAllowed": "sms:+13107292115?body=Hi, I found Barkley. He\u2019s with me here: https://maps.google.com/?q=34.10563,-118.35012",
+   "errors-location-true": [],
+   "locationDenied": "sms:+13107292115?body=Hi, I found Barkley. Please get in touch.",
+   "errors-location-false": [],
+   "album": {
+    "landed": "/album.html#post-11",
+    "dialogOpen": true,
+    "caption": "my photographer is falling behind again."
+   },
+   "walkErrors": [],
+   "failedRequests": [],
+   "walk390Errors": [],
+   "noJs": {
+    "cls": "",
+    "buttons": [
+     "tel:+13107292115",
+     "sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.",
+     "sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch."
+    ],
+    "picture": "1"
+   },
+   "noImages": {
+    "cls": "js first-view",
+    "pageErrors": []
+   },
+   "sizes": {
+    "320x568": {
+     "overflow": 0,
+     "h1": [
+      13,
+      306
+     ],
+     "errors": []
+    },
+    "390x844": {
+     "overflow": 0,
+     "h1": [
+      13,
+      370
+     ],
+     "errors": []
+    },
+    "768x1024": {
+     "overflow": 0,
+     "h1": [
+      25,
+      721
+     ],
+     "errors": []
+    },
+    "844x390": {
+     "overflow": 0,
+     "h1": [
+      30,
+      530
+     ],
+     "errors": []
+    },
+    "1440x900": {
+     "overflow": 0,
+     "h1": [
+      45,
+      1351
+     ],
+     "errors": []
+    },
+    "1920x1080": {
+     "overflow": 0,
+     "h1": [
+      42,
+      1705
+     ],
+     "errors": []
+    }
+   }
+  },
+  "c11": {
+   "firstLoadWith": 3346403,
+   "firstLoadWithout": 2969629,
+   "extraBytes": 376774,
+   "extraFiles": [
+    [
+     "",
+     18592
+    ],
+    [
+     "vista-depth.webp",
+     5730
+    ],
+    [
+     "vista-sketch.webp",
+     89156
+    ],
+    [
+     "vista-base.webp",
+     281888
+    ]
+   ],
+   "arrivalJs": 16698
+  }
+ },
+ "image_metrics": {
+  "c3_rest_meanabs_with_video_1440": 0.31,
+  "c3_rest_meanabs_composition_1440": 1.68,
+  "c6_barkley_meanabs_1440": 2.52,
+  "c3_rest_meanabs_with_video_390": 0.72,
+  "c3_rest_meanabs_composition_390": 3.13,
+  "c6_barkley_meanabs_390": 3.95,
+  "c5_barkley_masked": {
+   "to_top_left": {
+    "ncc": 0.9804,
+    "dx": 10,
+    "dy": 4
+   },
+   "to_bottom_right": {
+    "ncc": 0.9829,
+    "dx": -10,
+    "dy": -4
+   }
+  },
+  "c5": {
+   "near_poppies_bottom_left": {
+    "to_top_left": {
+     "ncc": 0.936,
+     "dx": 16,
+     "dy": 7,
+     "px": 17.5
+    },
+    "to_bottom_right": {
+     "ncc": 0.9327,
+     "dx": -16,
+     "dy": -7,
+     "px": 17.5
+    }
+   },
+   "skyline": {
+    "to_top_left": {
+     "ncc": 0.9999,
+     "dx": 0,
+     "dy": 0,
+     "px": 0.0
+    },
+    "to_bottom_right": {
+     "ncc": 0.9999,
+     "dx": 0,
+     "dy": 0,
+     "px": 0.0
+    }
+   },
+   "barkley_head_body": {
+    "to_top_left": {
+     "ncc": 0.971,
+     "dx": 10,
+     "dy": 4,
+     "px": 10.8
+    },
+    "to_bottom_right": {
+     "ncc": 0.9708,
+     "dx": -10,
+     "dy": -4,
+     "px": 10.8
+    }
+   }
+  },
+  "c5_edges": {
+   "center": {
+    "paper_like": 0,
+    "black": 0,
+    "of": 4680
+   },
+   "tl": {
+    "paper_like": 0,
+    "black": 0,
+    "of": 4680
+   },
+   "br": {
+    "paper_like": 0,
+    "black": 0,
+    "of": 4680
+   }
+  }
+ }
+}

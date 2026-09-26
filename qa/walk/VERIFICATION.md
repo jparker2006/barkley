@@ -10,6 +10,7 @@ Checked in headless Chromium (Playwright) against `node server.mjs` on http://12
 | Text Carol where I am | With permission, a simulated location at Runyon produced `sms:+13107292115?body=Hi, I found Barkley. He’s with me here: https://maps.google.com/?q=34.10563,-118.35012`. When denied, it sends the plain message. |
 | Living painting | Plays `trailhead-wide.mp4` on desktop and `trailhead-tall.mp4` on phones. It pauses after scrolling past the trailhead, and with reduced motion no video is loaded at all. The Barkley cutout lines up with no seam. |
 | Photo morph | Clicking a print ran a cross-document view transition into `album.html#post-5` (Chromium). |
+| Arrival | First-visit paint-in plus depth. All 12 measurable criteria pass; see `qa/arrival/RESULTS.md`. Reduced motion, data saver and no WebGL2 skip it with 0 errors. |
 | Clock sky | Previewed at 6:30, 9, 13, 17, 19 and 23 (`?hour=`). All stay daytime-bright. |
 | Posts | Exact approved copy, newest first: lost → Jake’s lunch → morning at Runyon. |
 | Reduced motion | `prefers-reduced-motion: reduce`: 0 running animations, all camera transforms `none`, scenes crossfade (vista → climb → summit) by opacity only. See `checks-output.txt`. |
