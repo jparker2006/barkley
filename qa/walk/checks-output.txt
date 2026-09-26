@@ -1,0 +1,7 @@
+REDUCED running animations: 0 []
+reduced y 0 opacity v/m/s 1 0 0 transforms none | none | none | none
+reduced y 0.7 opacity v/m/s 1 1 0 transforms none | none | none | none
+reduced y 1.4 opacity v/m/s 1 1 0 transforms none | none | none | none
+reduced y 2.9 opacity v/m/s 1 1 1 transforms none | none | none | none
+LINKS ["tel:+13107292115","sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.","sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.","album.html#post-11","album.html#post-5","album.html#post-12","album.html#post-10","album.html#post-7","album.html#post-8","album.html","tel:+13107292115","sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.","sms:+13107292115?body=Hi%2C%20I%20found%20Barkley.%20Please%20get%20in%20touch.","tel:+13107292115","tel:+13107510462","tel:+13102750055"]
+hero buttons {"call":[91.078125,203.078125,112],"text":[91.078125,203.078125,112]}

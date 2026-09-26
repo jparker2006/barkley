@@ -1,0 +1,96 @@
+[
+  {
+    "check": "Initial load: no gallery video, media manifest, or secret scene requests",
+    "pass": true
+  },
+  {
+    "check": "Responsive recovery",
+    "width": 320,
+    "height": 640,
+    "pageHeight": 740,
+    "overflow": false,
+    "contactBottom": 268.03125,
+    "targetHeight": 56,
+    "pass": true
+  },
+  {
+    "check": "Responsive recovery",
+    "width": 390,
+    "height": 844,
+    "pageHeight": 844,
+    "overflow": false,
+    "contactBottom": 283.625,
+    "targetHeight": 56,
+    "pass": true
+  },
+  {
+    "check": "Responsive recovery",
+    "width": 600,
+    "height": 800,
+    "pageHeight": 1100,
+    "overflow": false,
+    "contactBottom": 318.4375,
+    "targetHeight": 56,
+    "pass": true
+  },
+  {
+    "check": "Responsive recovery",
+    "width": 601,
+    "height": 800,
+    "pageHeight": 1002,
+    "overflow": false,
+    "contactBottom": 324.3125,
+    "targetHeight": 58,
+    "pass": true
+  },
+  {
+    "check": "Responsive recovery",
+    "width": 768,
+    "height": 1024,
+    "pageHeight": 1252,
+    "overflow": false,
+    "contactBottom": 349.953125,
+    "targetHeight": 58,
+    "pass": true
+  },
+  {
+    "check": "Responsive recovery",
+    "width": 1024,
+    "height": 768,
+    "pageHeight": 783,
+    "overflow": false,
+    "contactBottom": 401.28125,
+    "targetHeight": 58,
+    "pass": true
+  },
+  {
+    "check": "Responsive recovery",
+    "width": 1440,
+    "height": 900,
+    "pageHeight": 1060,
+    "overflow": false,
+    "contactBottom": 465.1875,
+    "targetHeight": 58,
+    "pass": true
+  },
+  {
+    "check": "Three discoveries, image decode, Escape and focus return",
+    "pass": true
+  },
+  {
+    "check": "All 10 photos and 5 videos load; album arrows, close, media cleanup and focus restoration",
+    "pass": true
+  },
+  {
+    "check": "Pause persists, OS reduced motion disables ambient and tap-triggered animation",
+    "pass": true
+  },
+  {
+    "check": "No browser JavaScript errors",
+    "pass": true
+  },
+  {
+    "check": "No JavaScript: contacts, backup details and all 15 archive entries remain accessible",
+    "pass": true
+  }
+]

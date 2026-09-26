@@ -1,0 +1,120 @@
+[
+  {
+    "check": "Agreed post copy/order, no old top bar, pause control or Easter eggs",
+    "pass": true
+  },
+  {
+    "check": "No archive videos, media manifest or old secret paintings requested on initial load",
+    "pass": true
+  },
+  {
+    "check": "Responsive layout and immediate recovery action",
+    "width": 320,
+    "height": 640,
+    "pageHeight": 1928,
+    "overflow": false,
+    "callBottom": 302.453125,
+    "callHeight": 56,
+    "pass": true
+  },
+  {
+    "check": "Responsive layout and immediate recovery action",
+    "width": 390,
+    "height": 844,
+    "pageHeight": 2015,
+    "overflow": false,
+    "callBottom": 321.265625,
+    "callHeight": 56,
+    "pass": true
+  },
+  {
+    "check": "Responsive layout and immediate recovery action",
+    "width": 600,
+    "height": 800,
+    "pageHeight": 2344,
+    "overflow": false,
+    "callBottom": 333.140625,
+    "callHeight": 56,
+    "pass": true
+  },
+  {
+    "check": "Responsive layout and immediate recovery action",
+    "width": 601,
+    "height": 800,
+    "pageHeight": 1658,
+    "overflow": false,
+    "callBottom": 345.09375,
+    "callHeight": 58,
+    "pass": true
+  },
+  {
+    "check": "Responsive layout and immediate recovery action",
+    "width": 768,
+    "height": 1024,
+    "pageHeight": 1886,
+    "overflow": false,
+    "callBottom": 372.828125,
+    "callHeight": 58,
+    "pass": true
+  },
+  {
+    "check": "Responsive layout and immediate recovery action",
+    "width": 1024,
+    "height": 768,
+    "pageHeight": 1712,
+    "overflow": false,
+    "callBottom": 422.34375,
+    "callHeight": 58,
+    "pass": true
+  },
+  {
+    "check": "Responsive layout and immediate recovery action",
+    "width": 1440,
+    "height": 900,
+    "pageHeight": 2014,
+    "overflow": false,
+    "callBottom": 527.15625,
+    "callHeight": 58,
+    "pass": true
+  },
+  {
+    "check": "Responsive layout and immediate recovery action",
+    "width": 1920,
+    "height": 1080,
+    "pageHeight": 2358,
+    "overflow": false,
+    "callBottom": 591.421875,
+    "callHeight": 58,
+    "pass": true
+  },
+  {
+    "check": "Scene and independent transparent foreground move in opposite directions on scroll; old pause preference is ignored",
+    "scene": "39px",
+    "foreground": "-25.500000000000004px",
+    "pass": true
+  },
+  {
+    "check": "OS reduced motion disables scenery and ambient animations",
+    "pass": true
+  },
+  {
+    "check": "Paw likes toggle, persist locally and can be undone",
+    "pass": true
+  },
+  {
+    "check": "Six preview photos and all 15 captioned album items load; videos never autoplay; keyboard arrows, Escape, cleanup and focus restoration pass",
+    "pass": true
+  },
+  {
+    "check": "Standalone Instagram-style album has all 15 captioned entries and opens the selected item",
+    "pass": true
+  },
+  {
+    "check": "No JavaScript errors during the browser flow",
+    "pass": true
+  },
+  {
+    "check": "Without JavaScript or image/font assets, contacts, backup disclosure, and 15 linked album entries remain available",
+    "pass": true
+  }
+]

@@ -1,0 +1,7 @@
+# Build output (node build.mjs)
+dist/
+# Local tool state and logs; never publish
+.gstack/
+.vercel/
+node_modules/
+.DS_Store
