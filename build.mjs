@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.dirname(fileURLToPath(import.meta.url));
 const out = path.join(root, 'dist', 'Barkley');
 const pages = ['index.html', 'album.html', 'about.html', 'photos.html', 'offline.html'];
-const code = ['world.css', 'world.js', 'touches.js', 'arrival.js', 'album.css', 'app.js', 'media.json', 'sw.js'];
+const code = ['world.css', 'sky.js', 'world.js', 'touches.js', 'arrival.js', 'ask.js', 'album.css', 'app.js', 'media.json', 'sw.js'];
 
 const hash = async file => createHash('sha256').update(await readFile(path.join(root, file))).digest('hex').slice(0, 8);
 const copy = async file => {

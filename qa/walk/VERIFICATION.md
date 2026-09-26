@@ -11,7 +11,8 @@ Checked in headless Chromium (Playwright) against `node server.mjs` on http://12
 | Living painting | Plays `trailhead-wide.mp4` on desktop and `trailhead-tall.mp4` on phones. It pauses after scrolling past the trailhead, and with reduced motion no video is loaded at all. The Barkley cutout lines up with no seam. |
 | Photo morph | Clicking a print ran a cross-document view transition into `album.html#post-5` (Chromium). |
 | Arrival | First-visit paint-in plus depth. All 12 measurable criteria pass; see `qa/arrival/RESULTS.md`. Reduced motion, data saver and no WebGL2 skip it with 0 errors. |
-| Clock sky | Previewed at 6:30, 9, 13, 17, 19 and 23 (`?hour=`). All stay daytime-bright. |
+| Real sky | `sky.js` sun elevation: 3.5° at 7:05, 53° at 12:00, 1° at 18:35, night crossfade 0.53 at 19:05 and 1.0 by 19:25 (LA, 2026-09-26). Night painting aligned to the day one within 1 px. Night paint-in keeps BARKLEY ink on paper, then cream once dark. Fog, rain, overcast and cloudy previewed at 390 and 1440 |
+| Ask Barkley | UI tested with a stubbed endpoint: typing indicator, two-turn history, phone numbers become `tel:+13107292115`, the address becomes a Maps link. Without `OPENROUTER_API_KEY` the endpoint answers “please text Carol” (HTTP 503) |
 | Posts | Exact approved copy, newest first: lost → Jake’s lunch → morning at Runyon. |
 | Reduced motion | `prefers-reduced-motion: reduce`: 0 running animations, all camera transforms `none`, scenes crossfade (vista → climb → summit) by opacity only. See `checks-output.txt`. |
 | No JavaScript | Hero, feed and the top-of-the-hill card all render over the vista backdrop, and links and the details disclosure work. |

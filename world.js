@@ -141,7 +141,8 @@
   const saveData = navigator.connection && navigator.connection.saveData;
   function runLiving() {
     if (!living) return;
-    const want = !reduced.matches && !saveData && !document.hidden && !stage.classList.contains('is-past-vista');
+    const dark = window.__sky && window.__sky.night >= 0.99;   // the night painting has no video
+    const want = !reduced.matches && !saveData && !dark && !document.hidden && !stage.classList.contains('is-past-vista');
     const src = tall.matches ? living.dataset.tall : living.dataset.wide;
     if (!want) { living.pause(); return; }
     if (!living.src.endsWith(src)) { living.classList.remove('is-playing'); living.src = src; }
@@ -153,6 +154,7 @@
     addEventListener('load', runLiving);
     reduced.addEventListener('change', () => { if (reduced.matches) living.classList.remove('is-playing'); runLiving(); });
     tall.addEventListener('change', runLiving);
+    addEventListener('skychange', runLiving);
   }
 
   // On desktop, the planes of the later scenes lean a little toward the mouse.

@@ -14,6 +14,10 @@ Barkley’s QR-tag page, redesigned as one continuous walk up Harper Monkey Trai
 
 **The arrival.** On the first visit of a session the trailhead paints itself in 1.8 s: bare paper, a pencil underdrawing (Barkley first), watercolor blooming out from his chest, the sky washing up last and a swell of sun. Then the painting opens into real depth, leaning with the mouse on desktop and drifting slowly on phones. BARKLEY and the three buttons are there and tappable from the first frame. It's skipped with reduced motion, data saver or no WebGL2, and after 1.2 s if the art hasn't loaded. Preview hooks: `?arrival=0.4` freezes it at that point, `?arrival=replay` plays it again, and `?arrival=off` turns it off. Spec: `specs/arrival.md`. Results: `qa/arrival/RESULTS.md`.
 
+**Ask Barkley.** The first card after the trailhead: "ask me anything." Finders can ask things like "where do you live?" or "i found you. what do i do?" and Barkley answers in his own voice, only from `barkley-facts.md`. If he doesn't know, he says so and points them to Carol. Phone numbers and the address in answers are tappable. It runs on OpenRouter (`deepseek/deepseek-v4.1-flash`, about $0.0001 per question) through `api/ask.js`, a Vercel Function. jeff-parker.com calls the same endpoint, and CORS allows it. It needs `OPENROUTER_API_KEY` set in the Vercel project. Without the key, or if anything fails, Barkley just says to text Carol.
+
+**The real sky.** `sky.js` works out where the sun actually is over Harper Monkey Trail right now: dawn blush, the painted morning, golden hour and sunset happen when they happen in LA. After dusk the trailhead crossfades into Codex's night painting (moon, city lights, moonlit Barkley), the walk scenes get a moonlit wash, and BARKLEY turns cream. Live weather comes from Open-Meteo (no key needed): extra clouds, an overcast grey sky, a marine layer over the basin, or rain, and the wind speed sets how fast the poppies sway and the clouds drift. Preview any moment with `?time=19:40`, `?weather=fog|rain|overcast|cloudy|clear` and `?wind=30`.
+
 Jeff is named everywhere he appears. Barkley never moves. The environment does:
 - **The living painting.** The trailhead is a real video loop: poppies sway, clouds drift and haze shimmers. A still cutout of Barkley is laid exactly on top.
 - **Real depth.** The climb and the top of the hill are split into sky, land and figure planes. Scrolling walks you into the scene, and on desktop the planes lean slightly toward the mouse.
@@ -32,9 +36,12 @@ Also: clouds drift behind the name, a hawk circles far off, pollen floats in the
 | `index.html` | The landing page |
 | `world.css` | Styles for the landing page |
 | `world.js` | Scroll camera, depth planes, living-painting playback (no dependencies) |
-| `touches.js` | Clock sky, sunrise, location text, photo morph |
+| `sky.js` | Real sun position and live weather (runs in `<head>`) |
+| `touches.js` | Sunrise wake-up, location text, photo morph |
+| `ask.js`, `api/ask.js`, `api/_barkley.js` | Ask Barkley: the chat card, the Vercel Function, the prompt |
+| `barkley-facts.md` | Everything Barkley knows. Edit it in plain English |
 | `arrival.js` | The arrival and depth: one WebGL2 shader, no libraries |
-| `tools/` | Asset scripts: `depth.py` (depth maps and base texture, via Depth Anything V2), `sketch.py` (pencil underdrawing), `video.sh` (trailhead loops) |
+| `tools/` | Asset scripts: `depth.py` (depth maps and base texture, via Depth Anything V2), `sketch.py` (pencil underdrawing), `video.sh` (trailhead loops), `night.py` (night assets) |
 | `album.html` + `album.css` + `app.js` | Full 15-item album and its captioned viewer |
 | `assets/world/` | The walk: vista paintings plus Barkley cutouts, trailhead video loops, climb/summit sky, land and figure layers (each with a `-tall` phone version), cloud, poppies |
 | `assets/og.jpg` | Link preview card |

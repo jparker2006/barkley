@@ -48,6 +48,14 @@ The page adds exactly one control: "Text Carol where I am", because it genuinely
 
 The first visit starts on paper and watches the painting happen: pencil, then watercolor blooming from Barkley, then the sky and the sun. After that the painting has depth: near poppies slide past far hills when you move. Barkley is his own rigid plane, so he is painted in and leans with the scene but never warps. The name and the three buttons are never covered or delayed. Details and numbers: `specs/arrival.md`, `qa/arrival/RESULTS.md`.
 
+## Ask Barkley
+
+It's for the moment someone is holding a lost dog and has a question the buttons don't answer. It sits in the first card after the trailhead, so the top of the page stays name plus three buttons. Barkley answers in his voice, only from facts his people wrote, and never guesses about food, medicine or anything unknown. Every dead end points back to Carol.
+
+## The real sky
+
+The page shows Harper Monkey Trail as it is right now. The sun's real position drives dawn, golden hour, sunset and night. Night is a real painting, not a darkened day: the same composition with a moon, city lights and a moonlit Barkley. Weather stays gentle and physical: a marine layer sits over the basin, never over Barkley, and rain is fine slanted streaks. Reduced motion keeps the look but stops the movement.
+
 ## Palette and type
 
 Tokens live on `:root` in `world.css`: sky `#a9dde2`, ink `#153a2f`, paper `#fffaf0`, tennis `#e2ef7e`, poppy `#e9731f`. Bricolage Grotesque (800/600) is the display face and Manrope (400/600) the text face, both self-hosted. The page is light-only on purpose: it is a sunlit morning, and the dark direction was rejected.

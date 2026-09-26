@@ -1,1 +1,1 @@
-{"name":"barkleys-morning","private":true,"type":"module","scripts":{"start":"node server.mjs"},"engines":{"node":">=18"}}
+{"name":"barkleys-morning","private":true,"type":"module","scripts":{"start":"node --env-file-if-exists=.env.local server.mjs"},"engines":{"node":">=22.9"}}

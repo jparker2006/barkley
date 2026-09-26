@@ -1,4 +1,4 @@
-// Barkley's arrival. On the first visit of a session the trailhead paints itself: paper, a pencil
+// Barkley's arrival. At night it paints the moonlit version (sky.js decides). On the first visit of a session the trailhead paints itself: paper, a pencil
 // underdrawing, watercolor blooming out from Barkley, the sun. Then the painting opens into depth and,
 // from then on, leans with the pointer (desktop) or drifts slowly (phones). One WebGL2 pass, no libraries.
 // Barkley is a separate rigid plane: he is painted in, never warped. See specs/arrival.md.
@@ -20,14 +20,14 @@
   // Plate-fraction landmarks; Barkley numbers come from tools/depth.py.
   const SCENES = {
     wide: {
-      base: 'assets/world/vista-base.webp', depth: 'assets/world/vista-depth.webp',
+      base: 'assets/world/vista-base.webp', nightBase: 'assets/world/vista-night-base.webp', nightBarkley: 'assets/world/vista-night-barkley.webp', depth: 'assets/world/vista-depth.webp',
       sketch: 'assets/world/vista-sketch.webp', barkley: 'assets/world/vista-barkley.webp',
       cut: [0.5742, 0.5488, 0.3932, 0.4512], barkleyDepth: 0.558,
       chest: [0.7493, 0.6981], arch: [0.838, 0.478], poppies: [0.09, 0.86], horizon: 0.47,
       video: [0, 0.15625, 1, 0.84375], videoFeather: 1,
     },
     tall: {
-      base: 'assets/world/vista-tall-base.webp', depth: 'assets/world/vista-tall-depth.webp',
+      base: 'assets/world/vista-tall-base.webp', nightBase: 'assets/world/vista-tall-night-base.webp', nightBarkley: 'assets/world/vista-tall-night-barkley.webp', depth: 'assets/world/vista-tall-depth.webp',
       sketch: 'assets/world/vista-tall-sketch.webp', barkley: 'assets/world/vista-tall-barkley.webp',
       cut: [0.4658, 0.5846, 0.5342, 0.349], barkleyDepth: 0.456,
       chest: [0.7139, 0.6954], arch: [0.845, 0.44], poppies: [0.1, 0.88], horizon: 0.42,
@@ -50,9 +50,9 @@
   precision highp float;
   in vec2 vUv;
   out vec4 outColor;
-  uniform sampler2D uBase, uVideo, uDepth, uSketch, uBark;
+  uniform sampler2D uBase, uVideo, uDepth, uSketch, uBark, uBaseNight, uBarkNight;
   uniform vec4 uVideoRect, uCut;
-  uniform float uVideoMix, uVideoFeather, uBd, uDolly, uT, uAspect, uHorizon;
+  uniform float uVideoMix, uVideoFeather, uBd, uDolly, uT, uAspect, uHorizon, uNight;
   uniform vec2 uCam, uC, uChest, uArch, uPoppies;
 
   float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
@@ -82,7 +82,7 @@
         c = mix(c, texture(uVideo, v).rgb, clamp(edge / 0.09, 0.0, 1.0) * uVideoMix);
       }
     }
-    return c;
+    return mix(c, texture(uBaseNight, s).rgb, uNight);   // Codex's night painting, same registration
   }
 
   void main() {
@@ -94,7 +94,7 @@
     vec2 sb = uC + (vUv - uC - uCam * uBd) / (1.0 + uDolly * (1.0 - uBd));
     vec2 b = (sb - uCut.xy) / uCut.zw;
     if (all(greaterThanEqual(b, vec2(0))) && all(lessThanEqual(b, vec2(1)))) {
-      vec4 bk = texture(uBark, b);
+      vec4 bk = mix(texture(uBark, b), texture(uBarkNight, b), uNight);
       col = mix(col, bk.rgb, bk.a);
       barkA = bk.a;
     }
@@ -143,7 +143,7 @@
 
       float sun = smoothstep(0.9, 1.2, uT) * (1.0 - smoothstep(1.2, 1.6, uT));
       vec2 sq = q - vec2(0.86 * uAspect, 0.04);
-      col += vec3(1.0, 0.82, 0.55) * (exp(-dot(sq, sq) * 3.5) * 0.32 + 0.035) * sun;
+      col += vec3(1.0, 0.82, 0.55) * (exp(-dot(sq, sq) * 3.5) * 0.32 + 0.035) * sun * (1.0 - uNight);
     }
     outColor = vec4(col, 1.0);
   }`;
@@ -197,10 +197,25 @@
     img.src = src;
   });
 
+  // Night textures only once the sun is going down (sky.js), so daytime visitors never download them.
+  const nightNow = () => (window.__sky ? window.__sky.night : 0);
+  let nightFor = '';
+  async function loadNight(s, key) {
+    if (nightFor === key || nightNow() <= 0) return;
+    nightFor = key;
+    const [base, barkley] = await Promise.all([s.nightBase, s.nightBarkley].map(loadImage));
+    if (!gl) return;
+    upload(tex.baseNight, base, true);
+    upload(tex.barkNight, barkley, true);
+  }
+
   async function loadScene() {
     const key = tall.matches ? 'tall' : 'wide';
     const s = SCENES[key];
+    if (nightFor && nightFor !== key) nightFor = '';
+    const night = loadNight(s, key).catch(() => {});
     const [base, depth, sketch, barkley] = await Promise.all([s.base, s.depth, s.sketch, s.barkley].map(loadImage));
+    await night;
     if (!gl) return;
     upload(tex.base, base, true);
     upload(tex.depth, depth, false);
@@ -281,6 +296,7 @@
     const bx = (cam[0] * scene.barkleyDepth * plate.offsetWidth).toFixed(2), by = (cam[1] * scene.barkleyDepth * plate.offsetHeight).toFixed(2);
     if (bx !== lean[0] || by !== lean[1]) { plate.style.setProperty('--lean-x', bx + 'px'); plate.style.setProperty('--lean-y', by + 'px'); lean = [bx, by]; }
     gl.uniform1f(U.uVideoMix, videoMix);
+    gl.uniform1f(U.uNight, nightFor ? nightNow() : 0);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
     window.__arrivalDraws++;
     if (more) request();
@@ -331,11 +347,11 @@
     gl.useProgram(prog);
     gl.bindVertexArray(gl.createVertexArray());
     for (const name of ['uBase', 'uVideo', 'uDepth', 'uSketch', 'uBark', 'uVideoRect', 'uCut', 'uVideoMix', 'uVideoFeather',
-      'uBd', 'uDolly', 'uT', 'uAspect', 'uHorizon', 'uCam', 'uC', 'uChest', 'uArch', 'uPoppies']) U[name] = gl.getUniformLocation(prog, name);
+      'uBd', 'uDolly', 'uT', 'uAspect', 'uHorizon', 'uCam', 'uC', 'uChest', 'uArch', 'uPoppies', 'uBaseNight', 'uBarkNight', 'uNight']) U[name] = gl.getUniformLocation(prog, name);
 
     const M = gl.MIRRORED_REPEAT, C = gl.CLAMP_TO_EDGE;
-    tex = { base: texture(0, M), video: texture(1, C), depth: texture(2, M), sketch: texture(3, M), bark: texture(4, C) };
-    gl.uniform1i(U.uBase, 0); gl.uniform1i(U.uVideo, 1); gl.uniform1i(U.uDepth, 2); gl.uniform1i(U.uSketch, 3); gl.uniform1i(U.uBark, 4);
+    tex = { base: texture(0, M), video: texture(1, C), depth: texture(2, M), sketch: texture(3, M), bark: texture(4, C), baseNight: texture(5, M), barkNight: texture(6, C) };
+    gl.uniform1i(U.uBase, 0); gl.uniform1i(U.uVideo, 1); gl.uniform1i(U.uDepth, 2); gl.uniform1i(U.uSketch, 3); gl.uniform1i(U.uBark, 4); gl.uniform1i(U.uBaseNight, 5); gl.uniform1i(U.uBarkNight, 6);
     gl.uniform1f(U.uT, -1);
 
     const barkley = plate.querySelector('.still-barkley');
@@ -378,6 +394,7 @@
     }
     tall.addEventListener('change', () => loadScene().then(request).catch(fail));
     document.addEventListener('visibilitychange', request);
+    addEventListener('skychange', () => { if (scene) loadNight(scene, sceneKey).then(request).catch(() => {}); });
     new MutationObserver(request).observe(stage, { attributes: true, attributeFilter: ['class'] });
     request();
   }
