@@ -35,7 +35,7 @@
   ],
   "functions": {
     "api/ask.js": {
-      "includeFiles": "barkley-facts.md",
+      "includeFiles": "barkley-*.md",
       "maxDuration": 30
     }
   }
